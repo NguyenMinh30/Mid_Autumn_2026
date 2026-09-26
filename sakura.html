@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nguyệt Ảnh Cung</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- File CSS riêng -->
+    <link rel="stylesheet" href="sakura.css">
+</head>
+
+<body>
+
+    <!-- WebGL Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Header Title Overlay -->
+    <div class="absolute top-5 left-0 right-0 z-10 text-center pointer-events-none px-4">
+        <h1 class="text-3xl md:text-5xl font-bold font-['Philosopher'] pink-gold-gradient title-glow tracking-wide">
+            ĐÊM RẰM TRUNG THU LUNG LINH
+        </h1>
+    </div>
+
+    <!-- Audio Control -->
+    <div class="absolute bottom-6 right-6 z-20 flex flex-col space-y-3">
+        <button id="music-btn"
+            class="glass-panel p-3.5 rounded-full text-pink-300 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-lg border border-pink-500/40"
+            title="Bật/Tắt Nhạc Trung Thu">
+            <i id="music-icon" class="fa-solid fa-music text-lg"></i>
+        </button>
+    </div>
+
+    <!-- Modal: Display Lantern Photo & Caption -->
+    <div id="lantern-modal"
+        class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div
+            class="glass-panel w-full max-w-lg rounded-3xl p-5 md:p-6 relative animate-modal-pop border-2 border-pink-500/40 shadow-[0_0_60px_rgba(255,20,147,0.35)] text-center max-h-[90vh] flex flex-col">
+            <!-- Close Button -->
+            <button id="close-modal-btn"
+                class="absolute top-4 right-4 text-pink-300 hover:text-white w-8 h-8 rounded-full bg-black/40 flex items-center justify-center hover:bg-pink-600/50 transition-colors z-10">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="overflow-y-auto pr-1">
+                <!-- Modal Title -->
+                <div class="flex items-center justify-center space-x-2 mb-3">
+                    <i class="fa-solid fa-lantern-lantern text-yellow-400 text-2xl animate-pulse"></i>
+                    <h3 id="modal-title" class="text-xl md:text-2xl font-bold font-['Philosopher'] pink-gold-gradient">
+                        Kỷ Niệm Đêm Rằm
+                    </h3>
+                </div>
+
+                <!-- Display Photo Frame -->
+                <div
+                    class="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden border-2 border-pink-400/30 shadow-2xl bg-black/60 my-2 group">
+                    <img id="modal-image" src="" alt="Lantern Memory"
+                        class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                        onerror="this.src='https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80'">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60">
+                    </div>
+                </div>
+                <!-- Caption Box -->
+                <div class="bg-black/40 rounded-2xl p-4 my-3 border border-pink-500/20 text-left">
+                    <p id="modal-caption"
+                        class="text-pink-100 font-['Dancing_Script'] text-xl md:text-2xl leading-relaxed text-center">
+                        "Chúc bạn và gia đình một mùa Tết Trung Thu đoàn viên, ấm áp, trọn vẹn niềm vui và luôn rực rỡ
+                        như ánh trăng!"
+                    </p>
+                </div>
+            </div>
+
+            <!-- Modal Action Button -->
+            <div class="flex items-center justify-center space-x-3 mt-3 pt-2 border-t border-pink-500/20">
+                <button id="modal-close-action-btn"
+                    class="glow-button px-6 py-2.5 rounded-xl text-xs font-bold text-white transition-all">
+                    Đóng Kỷ Niệm
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- File JS riêng -->
+    <script src="sakura.js"></script>
+</body>
+
+</html>

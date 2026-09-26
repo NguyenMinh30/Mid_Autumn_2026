@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mid-Autumn</title>
+    <link rel="stylesheet" href="autumn.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400&family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@300;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Canvas Phông Nền Vũ Trụ -->
+    <canvas id="worldCanvas"></canvas>
+
+    <!-- KHU VỰC CÁC TRANG FULL MÀN HÌNH -->
+    <div class="content-viewport">
+
+        <!-- TRANG 1: KHÓA TÌNH YÊU NGUYỆT QUANG -->
+        <section id="page-lock" class="page active">
+            <div class="fullscreen-content text-center" id="lockCard">
+                <span class="ethereal-tag">❖ TÂM GIAO VĨNH CỬU ❖</span>
+                <h1 class="page-title">Khóa Nguyệt Quang</h1>
+                <p class="section-desc"></p>
+
+                <div class="lock-container" id="lockContainer">
+                    <div class="lock-ring" id="lockRing">
+                        <div class="lock-core" id="lockCore">💖</div>
+                        <svg class="progress-ring" viewBox="0 0 160 160">
+                            <circle class="progress-ring__circle" stroke="url(#gradient-lock)" stroke-width="6"
+                                fill="transparent" r="65" cx="80" cy="80" />
+                            <defs>
+                                <linearGradient id="gradient-lock" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ff758f" />
+                                    <stop offset="50%" stop-color="#b5179e" />
+                                    <stop offset="100%" stop-color="#00f2fe" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+
+                <button class="btn-primary btn-lock" id="btnHoldLock">🔒 Giữ 2 Giây Để Kết Ấn</button>
+            </div>
+        </section>
+
+        <!-- TRANG 2: KHẮC TÊN VĨNH CỬU -->
+        <section id="page-signature" class="page">
+            <div class="fullscreen-content text-center">
+                <span class="ethereal-tag">❖ BẢNG TÊN ❖</span>
+                <h2 class="page-title">Khắc Tên Nguyệt Quang</h2>
+                <p class="section-desc"> </p>
+
+                <div id="sigFormContainer" class="signature-form-box">
+                    <div class="input-group">
+                        <textarea id="inputNames" placeholder=" Viết tên của mình lên đây nào" class="neon-textarea"
+                            rows="3" autocomplete="off"></textarea>
+                    </div>
+                    <button class="btn-primary btn-sig" id="btnSaveSig" style="margin-top: 16px;">✨ Khắc Tên</button>
+                </div>
+
+                <div id="sigDisplayContainer" class="signature-display-box" style="display: none;">
+                    <div class="sig-plaque">
+                        <div class="sig-icon">💍</div>
+                        <h3 class="sig-title-saved">Duyên Phận Đã Khắc</h3>
+                        <div class="sig-names-display" id="savedNamesText">--</div>
+                        <p class="sig-date-saved" id="savedDateText">Khắc ngày: --/--/----</p>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 18px; flex-wrap: wrap;">
+                        <button class="btn-primary btn-clear" id="btnEditSig"
+                            style="background: rgba(255,255,255,0.12); border: 1px solid var(--pink-neon); width: auto; padding: 12px 18px; font-size: 0.85rem;">✏️
+                        </button>
+
+                        <button class="btn-primary" id="btnGoToSecret"
+                            style="background: linear-gradient(135deg, #00f2fe, #b5179e); width: auto; padding: 12px 20px; font-size: 0.85rem;">🌙
+                            Thảm Nguyệt Bí Mật ➔</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRANG 3: THẢM NGUYỆT BÍ MẬT -->
+        <section id="page-mooncake" class="page">
+            <div class="fullscreen-content text-center">
+                <span class="ethereal-tag">❖ MẬT MÃ ĐÊM RẰM ❖</span>
+                <h2 class="page-title">Thảm Nguyệt Bí Mật</h2>
+                <p class="section-desc">Cắt bánh Trung Thu để xem bất ngờ</p>
+
+                <div class="mooncake-wrapper" id="mooncakeWrapper">
+                    <div class="mooncake-body">
+                        <div class="mooncake-half left">🥮</div>
+                        <div class="mooncake-half right">🥮</div>
+                    </div>
+                </div>
+
+                <!-- Đã xóa khung secretScroll ở đây -->
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Thông Báo Toast -->
+    <div id="toast" class="toast-hidden"></div>
+
+    <script src="autumn.js"></script>
+</body>
+
+</html>
